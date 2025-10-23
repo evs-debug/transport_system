@@ -8,35 +8,36 @@ body.split-layout {
   overflow: hidden;
 }
 
-/* Left panel with gradient and vehicle icon */
+/* Left panel with lighter background and large bus image */
 .left-panel {
   flex: 1;
   position: relative;
-  background: linear-gradient(135deg, #0066ff, #0099ff);
-  color: #fff;
+  background-color: #e7f0ff; /* Light blue background */
+  color: #003366;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 40px 30px 40px 60px;
+  padding: 60px 40px 60px 60px;
   overflow: hidden;
 }
 
-/* Vehicle silhouette background */
+/* Large bus photo as background */
 .left-panel::before {
   content: "";
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 180px;
-  height: 180px;
-  background: url('https://cdn-icons-png.flaticon.com/512/2331/2331770.png') no-repeat center center;
+  bottom: 10px;
+  right: 10px;
+  width: 280px;
+  height: 280px;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') no-repeat center center;
   background-size: contain;
-  opacity: 0.15;
+  opacity: 0.12;
   pointer-events: none;
-  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.05));
   z-index: 0;
+  border-radius: 12px;
 }
 
 .branding {
@@ -45,14 +46,16 @@ body.split-layout {
 }
 
 .branding h1 {
-  font-size: 26px;
-  margin-bottom: 10px;
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 700;
   animation: fadeInUp 1s ease;
 }
 
 .tagline {
-  font-size: 15px;
-  opacity: 0.9;
+  font-size: 16px;
+  opacity: 0.85;
+  font-weight: 500;
   animation: fadeInUp 1.2s ease;
 }
 
@@ -69,13 +72,13 @@ body.split-layout {
 
 /* ======= Glassmorphism Card ======= */
 .glass {
-  background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+  padding: 45px;
   max-width: 400px;
   width: 90%;
   animation: fadeInUp 0.8s ease;
@@ -83,43 +86,45 @@ body.split-layout {
 
 .glass h2 {
   color: #1a1a1a;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .login-subtitle {
-  color: #444;
-  margin-bottom: 25px;
-  font-size: 14px;
+  color: #555;
+  margin-bottom: 28px;
+  font-size: 15px;
+  font-weight: 500;
 }
 
 /* ======= Inputs and Button ======= */
 .form-group {
   text-align: left;
-  margin-bottom: 18px;
+  margin-bottom: 20px;
 }
 
 .form-group label {
   display: block;
   font-weight: 600;
   color: #222;
-  margin-bottom: 5px;
+  margin-bottom: 6px;
 }
 
 .form-group input {
   width: 100%;
-  padding: 10px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 15px;
-  transition: all 0.25s ease;
+  padding: 12px 14px;
+  border: 1.5px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-weight: 500;
 }
 
 /* Micro-interactions: focus + hover */
 .form-group input:focus {
   border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.35);
   outline: none;
-  transform: scale(1.01);
+  transform: scale(1.02);
 }
 
 .btn-primary {
@@ -127,17 +132,18 @@ body.split-layout {
   background: linear-gradient(90deg, #0066ff, #007bff);
   color: white;
   border: none;
-  padding: 12px;
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 17px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  font-weight: 700;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   background: linear-gradient(90deg, #005ce6, #0066ff);
-  box-shadow: 0 6px 12px rgba(0, 102, 255, 0.2);
+  box-shadow: 0 8px 18px rgba(0, 102, 255, 0.25);
 }
 
 /* Fade in micro-interaction */
@@ -174,6 +180,6 @@ body.split-layout {
   }
 
   .tagline {
-    font-size: 13px;
+    font-size: 14px;
   }
 }
