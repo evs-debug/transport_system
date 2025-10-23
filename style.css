@@ -8,11 +8,11 @@ body.split-layout {
   overflow: hidden;
 }
 
-/* Left panel with lighter background */
+/* Left panel with big bus image filling entire half */
 .left-panel {
   flex: 1;
   position: relative;
-  background-color: #e7f0ff; /* Light blue */
+  background-color: #e7f0ff; /* Light blue background */
   color: #003366;
   display: flex;
   flex-direction: column;
@@ -21,11 +21,23 @@ body.split-layout {
   text-align: center;
   padding: 60px 40px 60px 60px;
   overflow: hidden;
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+  background-size: cover;
+}
+
+/* Optional subtle overlay on image for better text readability */
+.left-panel::after {
+  content: "";
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  background: rgba(231, 240, 255, 0.55); /* light translucent overlay */
+  pointer-events: none;
+  z-index: 0;
 }
 
 .branding {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 .branding h1 {
@@ -42,22 +54,6 @@ body.split-layout {
   animation: fadeInUp 1.2s ease;
 }
 
-/* Actual bus image inside left panel */
-.bus-image {
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-  width: 320px;
-  height: auto;
-  opacity: 0.22;
-  border-radius: 12px;
-  object-fit: cover;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.08));
-  z-index: 1;
-  user-select: none;
-  pointer-events: none;
-}
-
 /* Right panel with login card */
 .right-panel {
   flex: 1;
@@ -67,6 +63,7 @@ body.split-layout {
   background: #eef3ff;
   padding-left: 60px;
   position: relative;
+  z-index: 1;
 }
 
 /* Glassmorphism Card */
@@ -122,3 +119,63 @@ body.split-layout {
   border-color: #007bff;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.35);
   outline: none;
+  transform: scale(1.02);
+}
+
+.btn-primary {
+  width: 100%;
+  background: linear-gradient(90deg, #0066ff, #007bff);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(90deg, #005ce6, #0066ff);
+  box-shadow: 0 8px 18px rgba(0, 102, 255, 0.25);
+}
+
+/* Fade in micro-interaction */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive layout */
+@media (max-width: 800px) {
+  body.split-layout {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    flex: 0.6;
+    padding: 30px;
+    background-position: center top;
+  }
+
+  .right-panel {
+    flex: 1;
+    padding: 20px;
+    justify-content: center;
+  }
+
+  .branding h1 {
+    font-size: 22px;
+  }
+
+  .tagline {
+    font-size: 14px;
+  }
+}
