@@ -1,227 +1,146 @@
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #f2f7ff;
-  color: #333;
-}
-
-.navbar {
+/* ======== Split-Screen Login Layout ======== */
+body.split-layout {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(90deg, #0052cc, #007bff);
-  color: white;
-  padding: 1rem 2rem;
-}
-
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover,
-.navbar a.active {
-  color: #ffe082;
-}
-
-.container {
-  padding: 2rem;
-}
-
-h3 {
-  color: #004aad;
-  margin-bottom: 1rem;
-}
-
-.card {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
-
-form label {
-  display: block;
-  margin-top: 0.8rem;
-  font-weight: 500;
-}
-
-input[type="text"],
-input[type="number"] {
-  width: 100%;
-  padding: 0.6rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  margin-top: 0.3rem;
-}
-
-.btn {
-  background: #007bff;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  padding: 0.6rem 1.2rem;
-  margin-top: 1rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #005fcc;
-}
-
-.btn.delete {
-  background: #dc3545;
-}
-
-.btn.delete:hover {
-  background: #b02a37;
-}
-
-.btn-group {
-  display: flex;
-  gap: 0.8rem;
-  margin-top: 1rem;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-
-table th,
-table td {
-  padding: 0.8rem;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-
-table th {
-  background: #007bff;
-  color: white;
-}
-
-.seat-map {
-  display: grid;
-  grid-template-columns: repeat(6, 30px);
-  gap: 8px;
-  margin-top: 1rem;
-}
-
-.seat {
-  width: 30px;
-  height: 30px;
-  border-radius: 4px;
-}
-
-.seat.booked {
-  background: #ff4d4d;
-}
-
-.seat.available {
-  background: #00cc66;
-}
-
-.legend {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin-right: 4px;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-}
-
-/* ===== Login Page Styling ===== */
-body {
+  height: 100vh;
   font-family: 'Inter', sans-serif;
-  background-color: #f4f7fe;
   margin: 0;
+  background-color: #f4f7fe;
 }
 
-.navbar {
-  background: linear-gradient(90deg, #0066ff, #007bff);
-  padding: 15px 40px;
+/* Left panel with gradient */
+.left-panel {
+  flex: 1;
+  background: linear-gradient(135deg, #0066ff, #0099ff);
   color: #fff;
-  font-weight: 600;
   display: flex;
   align-items: center;
-  font-size: 18px;
+  justify-content: center;
+  text-align: center;
+  padding: 40px;
 }
 
-.logo span {
-  margin-left: 8px;
+.branding h1 {
+  font-size: 26px;
+  margin-bottom: 10px;
+  animation: fadeInUp 1s ease;
 }
 
-.login-container {
+.tagline {
+  font-size: 15px;
+  opacity: 0.9;
+  animation: fadeInUp 1.2s ease;
+}
+
+/* Right panel with login card */
+.right-panel {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 80px);
-  padding: 20px;
+  background: #eef3ff;
+  position: relative;
 }
 
-.login-card {
-  background: #fff;
+/* ======= Glassmorphism Card ======= */
+.glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  width: 100%;
   max-width: 400px;
-  text-align: center;
+  width: 90%;
+  animation: fadeInUp 0.8s ease;
 }
 
-.login-card h2 {
-  margin-bottom: 25px;
+.glass h2 {
   color: #1a1a1a;
+  margin-bottom: 5px;
 }
 
+.login-subtitle {
+  color: #444;
+  margin-bottom: 25px;
+  font-size: 14px;
+}
+
+/* ======= Inputs and Button ======= */
 .form-group {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .form-group label {
-  font-weight: 600;
-  color: #333;
   display: block;
-  margin-bottom: 6px;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
 }
 
 .form-group input {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 15px;
+  transition: all 0.25s ease;
+}
+
+/* Micro-interactions: focus + hover */
+.form-group input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+  transform: scale(1.01);
 }
 
 .btn-primary {
   width: 100%;
-  background-color: #0066ff;
+  background: linear-gradient(90deg, #0066ff, #007bff);
   color: white;
   border: none;
   padding: 12px;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.25s ease;
 }
 
 .btn-primary:hover {
-  background-color: #0052cc;
+  transform: translateY(-2px);
+  background: linear-gradient(90deg, #005ce6, #0066ff);
+  box-shadow: 0 6px 12px rgba(0, 102, 255, 0.2);
+}
+
+/* Fade in micro-interaction */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ======= Responsive Layout ======= */
+@media (max-width: 800px) {
+  body.split-layout {
+    flex-direction: column;
+  }
+
+  .left-panel {
+    flex: 0.6;
+    padding: 30px;
+  }
+
+  .right-panel {
+    flex: 1;
+    padding: 20px;
+  }
+
+  .branding h1 {
+    font-size: 22px;
+  }
+
+  .tagline {
+    font-size: 13px;
+  }
 }
