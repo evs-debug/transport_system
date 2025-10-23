@@ -2,24 +2,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin Login - Transport Management</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login | Transport Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="login-container">
-    <h2><i class="fas fa-shuttle-van"></i> Admin Login</h2>
-    <form action="admin.html" method="get">
-      <label for="username"><i class="fas fa-user"></i> Username</label>
-      <input type="text" id="username" placeholder="Enter username" required />
-      
-      <label for="password"><i class="fas fa-lock"></i> Password</label>
-      <input type="password" id="password" placeholder="Enter password" required />
-      
-      <button type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
-    </form>
-  </div>
+  <header class="navbar">
+    <div class="logo">
+      🚌 <span>Transport Management System</span>
+    </div>
+  </header>
+
+  <main class="login-container">
+    <div class="login-card">
+      <h2>Admin Login</h2>
+      <form action="admin.html" method="post">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" placeholder="Enter username" required>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" placeholder="Enter password" required>
+        </div>
+
+        <button type="submit" class="btn-primary">Login</button>
+      </form>
+    </div>
+  </main>
 </body>
 </html>
