@@ -2,27 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TMS Admin Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Admin Dashboard - Transport Management</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<body class="dashboard-page">
-  <header>
-    <h1>Admin Dashboard</h1>
-    <nav>
+<body>
+  <div class="dashboard">
+    <nav class="sidebar">
+      <h3><i class="fas fa-cogs"></i> Admin Menu</h3>
       <ul>
-        <li><a href="#">Vehicles</a></li>
-        <li><a href="#">Drivers</a></li>
-        <li><a href="#">Status</a></li>
+        <li><a href="#vehicles"><i class="fas fa-truck"></i> Vehicles</a></li>
+        <li><a href="#drivers"><i class="fas fa-user-tie"></i> Drivers</a></li>
+        <li><a href="#status"><i class="fas fa-info-circle"></i> Status</a></li>
       </ul>
     </nav>
-  </header>
-
-  <main>
-    <section id="content">
-      <h2>Welcome, Admin</h2>
-      <p>Select a menu option to manage transport operations.</p>
-    </section>
-  </main>
+    <main class="content">
+      <section id="vehicles">
+        <h2><i class="fas fa-truck-moving"></i> Vehicles</h2>
+        <p>Manage vehicles here...</p>
+      </section>
+      <section id="drivers">
+        <h2><i class="fas fa-user-shield"></i> Drivers</h2>
+        <p>Manage drivers here...</p>
+      </section>
+      <section id="status">
+        <h2><i class="fas fa-chart-line"></i> Status</h2>
+        <p>View system status here...</p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
