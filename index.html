@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login | Transport Management System</title>
+  <title>Login | Transport Management System</title>
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header class="navbar">
-    <div class="logo">
-      🚌 <span>Transport Management System</span>
+<body class="split-layout">
+  <div class="left-panel">
+    <div class="branding">
+      <h1>🚌 Transport Management System</h1>
+      <p class="tagline">Manage fleets. Track routes. Stay in control.</p>
     </div>
-  </header>
+  </div>
 
-  <main class="login-container">
-    <div class="login-card">
-      <h2>Admin Login</h2>
-      <form action="admin.html" method="post">
+  <div class="right-panel">
+    <div class="login-card glass">
+      <h2>Welcome Back!</h2>
+      <p class="login-subtitle">Please log in to access your dashboard</p>
+
+      <form id="login-form">
         <div class="form-group">
           <label for="username">Username</label>
           <input type="text" id="username" placeholder="Enter username" required>
@@ -34,14 +37,17 @@
         <button type="submit" class="btn-primary">Login</button>
       </form>
     </div>
-  </main>
-  <script>
-  document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault(); // Stop form from trying to POST
-    // Simple redirect to your main dashboard page
-    window.location.href = "admin.html";
-  });
-</script>
+  </div>
 
+  <script>
+    const form = document.getElementById("login-form");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const button = form.querySelector("button");
+      button.textContent = "Logging in...";
+      button.disabled = true;
+      setTimeout(() => window.location.href = "admin.html", 1200);
+    });
+  </script>
 </body>
 </html>
