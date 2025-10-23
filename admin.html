@@ -1,36 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin Dashboard - Transport Management</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - Transport Management System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="dashboard">
-    <nav class="sidebar">
-      <h3><i class="fas fa-cogs"></i> Admin Menu</h3>
-      <ul>
-        <li><a href="#vehicles"><i class="fas fa-truck"></i> Vehicles</a></li>
-        <li><a href="#drivers"><i class="fas fa-user-tie"></i> Drivers</a></li>
-        <li><a href="#status"><i class="fas fa-info-circle"></i> Status</a></li>
-      </ul>
-    </nav>
-    <main class="content">
-      <section id="vehicles">
-        <h2><i class="fas fa-truck-moving"></i> Vehicles</h2>
-        <p>Manage vehicles here...</p>
-      </section>
-      <section id="drivers">
-        <h2><i class="fas fa-user-shield"></i> Drivers</h2>
-        <p>Manage drivers here...</p>
-      </section>
-      <section id="status">
-        <h2><i class="fas fa-chart-line"></i> Status</h2>
-        <p>View system status here...</p>
-      </section>
-    </main>
+  <div class="navbar">
+    <h2>🚍 Transport Management System</h2>
+    <ul>
+      <li><a href="#vehicles" class="active">Vehicles</a></li>
+      <li><a href="#drivers">Drivers</a></li>
+      <li><a href="#status">Status</a></li>
+    </ul>
   </div>
+
+  <div class="container">
+    <!-- VEHICLES SECTION -->
+    <section id="vehicles" class="tab-content active">
+      <h3>Manage Vehicles</h3>
+      <div class="card">
+        <h4>Add a Vehicle</h4>
+        <form>
+          <label>Vehicle Number</label>
+          <input type="text" placeholder="Enter vehicle number">
+
+          <label>Tracking ID</label>
+          <input type="text" placeholder="Enter tracking ID">
+
+          <label>Total Seats</label>
+          <input type="number" placeholder="Enter total seats">
+
+          <label>Vehicle Route</label>
+          <input type="text" placeholder="Enter route">
+
+          <button type="button" class="btn">Add Vehicle</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h4>Search / Edit / Delete Vehicle</h4>
+        <input type="text" placeholder="Search by vehicle number">
+        <div class="btn-group">
+          <button class="btn">Search</button>
+          <button class="btn">Edit</button>
+          <button class="btn delete">Delete</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRIVERS SECTION -->
+    <section id="drivers" class="tab-content">
+      <h3>Manage Drivers</h3>
+      <div class="card">
+        <h4>Add a Driver</h4>
+        <form>
+          <label>Driver Name</label>
+          <input type="text" placeholder="Enter name">
+
+          <label>Age</label>
+          <input type="number" placeholder="Enter age">
+
+          <label>Contact No.</label>
+          <input type="text" placeholder="Enter contact number">
+
+          <label>Employer ID</label>
+          <input type="text" placeholder="Enter employer ID">
+
+          <button type="button" class="btn">Add Driver</button>
+        </form>
+      </div>
+
+      <div class="card">
+        <h4>Assign / Search / Edit / Delete Driver</h4>
+        <input type="text" placeholder="Search by employer ID">
+        <div class="btn-group">
+          <button class="btn">Assign</button>
+          <button class="btn">Search</button>
+          <button class="btn">Edit</button>
+          <button class="btn delete">Delete</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATUS SECTION -->
+    <section id="status" class="tab-content">
+      <h3>Vehicle Status Overview</h3>
+      <div class="card">
+        <h4>All Vehicles & Driver Status</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Vehicle No</th>
+              <th>Driver</th>
+              <th>Seats Booked</th>
+              <th>Seats Remaining</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>BA-2-CHA-4567</td>
+              <td>Ram Shrestha</td>
+              <td>18</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>BA-5-PA-3333</td>
+              <td>Kiran Gurung</td>
+              <td>12</td>
+              <td>18</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h4>Seat Map Representation</h4>
+        <div class="seat-map">
+          <div class="seat booked"></div>
+          <div class="seat available"></div>
+          <div class="seat booked"></div>
+          <div class="seat available"></div>
+          <div class="seat available"></div>
+          <div class="seat booked"></div>
+        </div>
+        <p><span class="seat booked legend"></span> Booked | <span class="seat available legend"></span> Available</p>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Tab switching functionality
+    const tabs = document.querySelectorAll('.navbar a');
+    const contents = document.querySelectorAll('.tab-content');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.querySelector(tab.getAttribute('href')).classList.add('active');
+      });
+    });
+  </script>
 </body>
 </html>
