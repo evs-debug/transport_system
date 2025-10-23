@@ -1,4 +1,3 @@
-/* ======== Split-Screen Login Layout ======== */
 body.split-layout {
   display: flex;
   height: 100vh;
@@ -8,11 +7,13 @@ body.split-layout {
   overflow: hidden;
 }
 
-/* Left panel with big bus image filling entire half */
+/* Left panel is exactly 50% width */
 .left-panel {
-  flex: 1;
+  width: 50vw;
   position: relative;
-  background-color: #e7f0ff; /* Light blue background */
+  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
+  background-size: cover;
+  background-position: center center;
   color: #003366;
   display: flex;
   flex-direction: column;
@@ -21,16 +22,14 @@ body.split-layout {
   text-align: center;
   padding: 60px 40px 60px 60px;
   overflow: hidden;
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center;
-  background-size: cover;
 }
 
-/* Optional subtle overlay on image for better text readability */
+/* Slight translucent overlay for text readability */
 .left-panel::after {
   content: "";
   position: absolute;
   top: 0; bottom: 0; left: 0; right: 0;
-  background: rgba(231, 240, 255, 0.55); /* light translucent overlay */
+  background: rgba(231, 240, 255, 0.5);
   pointer-events: none;
   z-index: 0;
 }
@@ -54,11 +53,11 @@ body.split-layout {
   animation: fadeInUp 1.2s ease;
 }
 
-/* Right panel with login card */
+/* Right panel also 50% width */
 .right-panel {
-  flex: 1;
+  width: 50vw;
   display: flex;
-  justify-content: flex-start; /* push login card slightly to right */
+  justify-content: flex-start;
   align-items: center;
   background: #eef3ff;
   padding-left: 60px;
@@ -92,7 +91,6 @@ body.split-layout {
   font-weight: 500;
 }
 
-/* Inputs and Button */
 .form-group {
   text-align: left;
   margin-bottom: 20px;
@@ -141,7 +139,6 @@ body.split-layout {
   box-shadow: 0 8px 18px rgba(0, 102, 255, 0.25);
 }
 
-/* Fade in micro-interaction */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -153,29 +150,19 @@ body.split-layout {
   }
 }
 
-/* Responsive layout */
+/* Responsive tweaks */
 @media (max-width: 800px) {
   body.split-layout {
     flex-direction: column;
   }
 
-  .left-panel {
-    flex: 0.6;
-    padding: 30px;
-    background-position: center top;
-  }
-
+  .left-panel,
   .right-panel {
-    flex: 1;
-    padding: 20px;
-    justify-content: center;
+    width: 100vw;
+    padding: 30px;
   }
 
-  .branding h1 {
-    font-size: 22px;
-  }
-
-  .tagline {
-    font-size: 14px;
+  .left-panel {
+    background-position: center top;
   }
 }
