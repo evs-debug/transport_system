@@ -35,5 +35,13 @@
       </form>
     </div>
   </main>
+  <script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Stop form from trying to POST
+    // Simple redirect to your main dashboard page
+    window.location.href = "admin.html";
+  });
+</script>
+
 </body>
 </html>
