@@ -8,11 +8,11 @@ body.split-layout {
   overflow: hidden;
 }
 
-/* Left panel with lighter background and large bus image */
+/* Left panel with lighter background */
 .left-panel {
   flex: 1;
   position: relative;
-  background-color: #e7f0ff; /* Light blue background */
+  background-color: #e7f0ff; /* Light blue */
   color: #003366;
   display: flex;
   flex-direction: column;
@@ -23,26 +23,9 @@ body.split-layout {
   overflow: hidden;
 }
 
-/* Large bus photo as background */
-.left-panel::before {
-  content: "";
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  width: 280px;
-  height: 280px;
-  background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80') no-repeat center center;
-  background-size: contain;
-  opacity: 0.12;
-  pointer-events: none;
-  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.05));
-  z-index: 0;
-  border-radius: 12px;
-}
-
 .branding {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .branding h1 {
@@ -59,18 +42,34 @@ body.split-layout {
   animation: fadeInUp 1.2s ease;
 }
 
+/* Actual bus image inside left panel */
+.bus-image {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 320px;
+  height: auto;
+  opacity: 0.22;
+  border-radius: 12px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.08));
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+}
+
 /* Right panel with login card */
 .right-panel {
   flex: 1;
   display: flex;
-  justify-content: flex-start; /* move content towards right */
+  justify-content: flex-start; /* push login card slightly to right */
   align-items: center;
   background: #eef3ff;
-  padding-left: 60px; /* push login card right */
+  padding-left: 60px;
   position: relative;
 }
 
-/* ======= Glassmorphism Card ======= */
+/* Glassmorphism Card */
 .glass {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(20px);
@@ -96,7 +95,7 @@ body.split-layout {
   font-weight: 500;
 }
 
-/* ======= Inputs and Button ======= */
+/* Inputs and Button */
 .form-group {
   text-align: left;
   margin-bottom: 20px;
@@ -119,67 +118,7 @@ body.split-layout {
   font-weight: 500;
 }
 
-/* Micro-interactions: focus + hover */
 .form-group input:focus {
   border-color: #007bff;
   box-shadow: 0 0 8px rgba(0, 123, 255, 0.35);
   outline: none;
-  transform: scale(1.02);
-}
-
-.btn-primary {
-  width: 100%;
-  background: linear-gradient(90deg, #0066ff, #007bff);
-  color: white;
-  border: none;
-  padding: 14px;
-  border-radius: 10px;
-  font-size: 17px;
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-3px);
-  background: linear-gradient(90deg, #005ce6, #0066ff);
-  box-shadow: 0 8px 18px rgba(0, 102, 255, 0.25);
-}
-
-/* Fade in micro-interaction */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ======= Responsive Layout ======= */
-@media (max-width: 800px) {
-  body.split-layout {
-    flex-direction: column;
-  }
-
-  .left-panel {
-    flex: 0.6;
-    padding: 30px;
-  }
-
-  .right-panel {
-    flex: 1;
-    padding: 20px;
-    justify-content: center;
-  }
-
-  .branding h1 {
-    font-size: 22px;
-  }
-
-  .tagline {
-    font-size: 14px;
-  }
-}
